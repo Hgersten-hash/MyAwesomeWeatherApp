@@ -26,7 +26,7 @@ function findPosition(position){
 function findCurrentCity (coordinates){
   let latitude = coordinates[0];
   let longitude = coordinates[1];
-  let apiLocationUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=5&appid=${apiWeatherKey}`;
+  let apiLocationUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=5&appid=${apiWeatherKey}`;
   axios.get(apiLocationUrl).then(displayCurrentCity);
 }
 function displayCurrentCity(response){
