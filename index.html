@@ -15,141 +15,127 @@
   </head>
   <body>
     <div class="container">
-      <form id = "cityForm">
-        <div class="row">
-          <div class="col-6">
-            <div class="mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="exampleInputCity"
-                aria-describedby="emailHelp"
-                placeholder="Search City"
-    
-              />
+      <div class="weather-app">
+        <div class="shadow p-3 mb-5 bg-body rounded">
+          <form id="cityForm">
+            <div class="row">
+              <div class="col-6">
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleInputCity"
+                    aria-describedby="emailHelp"
+                    placeholder="Search City"
+                  />
+                </div>
+              </div>
+              <div class="col-6">
+                <button type="submit" class="btn btn-primary" id="formButton">
+                  Search
+                </button>
+              
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  id="currentButton"
+                >
+                  Current
+                </button>
+              </div>
+            </div>
+          </form>
+          <h1 id="cityHeading"></h1>
+          <h3 id="date"></h3>
+          <span class="weatherIcon"> &#x1F324;</span>
+          <div class="weatherInfo">
+            <div class="row">
+              <div class="col-3">
+                <p class="extraInfo">
+                  Precipitation:
+                  <span id="Precipitation"> </span>
+                  <br />
+                  Humidity:
+                  <span id="Humidity"> </span>
+                  <br />
+                  Wind:
+                  <span id="wind"> </span>
+                </p>
+              </div>
+              <div class="col-3">
+                <p class="Degree">
+                  <strong id="bigDegree"></strong>
+                  <span>&#176;</span>
+                  <span class="degreeOptions">
+                    <a href=" " id="celciusLink"> C</a> |
+                    <a href=" " id="farenheitLink"> F </a>
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
-          <div class="col-6">
-            <button type="submit" class="btn btn-primary" id="formButton">Search</button>
+          <div class="hourlyWeather">
+            <div class="row">
+              <div class="col-3">
+                <div class="card">
+                  <div class="card-body">
+                    <h2>3:00 pm</h2>
+                    <span class="miniIcon">&#9729;</span>
+                    <p class="miniDegree">
+                      36
+                      <span>&#176;</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="card">
+                  <div class="card-body">
+                    <h2>4:00 pm</h2>
+                    <span class="miniIcon">&#9729;</span>
+                    <p class="miniDegree">
+                      36
+                      <span>&#176;</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="card">
+                  <div class="card-body">
+                    <h2>5:00 pm</h2>
+                    <span class="miniIcon">&#9729;</span>
+                    <p class="miniDegree">
+                      36
+                      <span>&#176;</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="card">
+                  <div class="card-body">
+                    <h2>6:00 pm</h2>
+                    <span class="miniIcon">&#9729;</span>
+                    <p class="miniDegree">
+                      36
+                      <span>&#176;</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col-6">
-            <button type="submit" class="btn btn-primary" id="currentButton">Current</button>
-          </div>
-        </div>
-      </form>
-      <h1 id = "cityHeading"></h1>
-      <h3 id = "date"></h3>
-      <span class="weatherIcon"> &#x1F324;</span>
-      <div class="weatherInfo">
-        <div class="row">
-          <div class="col-3">
-            <p class="extraInfo">
-              Precipitation: 
-              <span id = "Precipitation">
-                
-              </span>
-              <br />
-              Humidity: 
-              <span id="Humidity">
-               
-              </span>
-              <br />
-              Wind: 
-              <span id = "wind">
-
-              </span>
-            </p>
-          </div>
-          <div class="col-3">
-            <p class="Degree">
-              <strong id="bigDegree"></strong>
-              <span>&#176;</span>
-              <span class="degreeOptions">
-                <a href=" " id="celciusLink"> C</a> |
-              <a href = " " id = "farenheitLink"> F </a>
-              </span>
-            </p>
-          </div>
-        </div>
+        
+        <small>
+          <a
+            href="https://github.com/Hgersten-hash/MyAwesomeWeatherApp"
+            target="_blank"
+            >Open-source code</a
+          >
+          by Hanna Gersten
+        </small>
       </div>
-      <div class="hourlyWeather">
-      <div class="row">
-        <div class="col-2">
-          <div class="card">
-            <div class="card-body">
-              <h2>3:00 pm</h2>
-              <span class="miniIcon">&#9729;</span>
-              <p class="miniDegree">
-                36
-                <span>&#176;</span>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-2">
-          <div class="card">
-            <div class="card-body">
-              <h2>4:00 pm</h2>
-              <span class="miniIcon">&#9729;</span>
-              <p class="miniDegree">
-                36
-                <span>&#176;</span>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-2">
-          <div class="card">
-            <div class="card-body">
-              <h2>5:00 pm</h2>
-              <span class="miniIcon">&#9729;</span>
-              <p class="miniDegree">
-                36
-                <span>&#176;</span>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-2">
-          <div class="card">
-            <div class="card-body">
-              <h2>6:00 pm</h2>
-              <span class="miniIcon">&#9729;</span>
-              <p class="miniDegree">
-                36
-                <span>&#176;</span>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-2">
-          <div class="card">
-            <div class="card-body">
-              <h2>7:00 pm</h2>
-              <span class="miniIcon">&#9729;</span>
-              <p class="miniDegree">
-                36
-                <span>&#176;</span>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-2">
-          <div class="card">
-            <div class="card-body">
-              <h2>8:00 pm</h2>
-              <span class="miniIcon">&#9729;</span>
-              <p class="miniDegree">
-                36
-                <span>&#176;</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <p>
-        <a href="https://github.com/Hgersten-hash/MyAwesomeWeatherApp" target="_blank">Open-source code</a> by Hanna Gersten
-      </p>
     </div>
     <script src="SC+Project/src/project.js"></script>
   </body>

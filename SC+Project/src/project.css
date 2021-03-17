@@ -1,10 +1,16 @@
+.weather-app {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 0;
+}
+
 h1 {
   text-align: center;
 }
 
 form {
-  margin: 30px;
   text-align: center;
+  margin: 15px;
 }
 .form-control {
   text-align: center;
@@ -23,12 +29,12 @@ a:hover {
 .col-6 button {
   border-radius: 50px;
   box-shadow: 5px 5px #cfcccc;
-  margin-left: 65px;
+  margin-left: 10px;
 }
 .col-6 input {
   border-radius: 50px;
   box-shadow: 5px 5px #cfcccc;
-  margin-left: 225px;
+  margin-left: 30px;
 }
 span.degreeOptions {
   font-size: 15px;
