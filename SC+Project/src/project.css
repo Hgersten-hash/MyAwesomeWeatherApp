@@ -15,6 +15,20 @@ form {
 .form-control {
   text-align: center;
 }
+.col-6 ul {
+  margin: none;
+  padding: none;
+}
+
+ul {
+  margin-right: 30px;
+  padding: none;
+}
+li {
+  list-style: none;
+  margin: none;
+  padding: none;
+}
 h3 {
   text-align: center;
 }
@@ -47,10 +61,9 @@ span.weatherIcon {
 }
 p.Degree {
   font-size: 30px;
-  margin-left: 50px;
 }
 div.weatherInfo {
-  margin-left: 160px;
+  margin-left: 105px;
 }
 h2 {
   text-align: center;
