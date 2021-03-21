@@ -14,9 +14,11 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
+
     <div class="container">
       <div class="weather-app">
         <div class="shadow p-3 mb-5 bg-body rounded">
+          
           <form id="cityForm">
             <div class="row">
               <div class="col-6">
@@ -67,14 +69,16 @@
                 </ul>
               </div>
               <div class="col-6">
-                <p class="Degree">
+                <div class="clearfix">
                   <strong id="bigDegree"></strong>
-                  <span>&#176;</span>
-                  <span class="degreeOptions">
-                    <a href=" " id="celciusLink"> C</a> |
+                  <span class="float-left">
+                    <span class="degreeSymbol">&#176;</span>
+                    <span class="units">
+                       <a href=" " id="celciusLink"> C</a> |
                     <a href=" " id="farenheitLink"> F </a>
+                    </span>
                   </span>
-                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -128,7 +132,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            
           </div>
         
         <small>
@@ -140,7 +144,9 @@
           by Hanna Gersten
         </small>
       </div>
+      </div>
     </div>
+
     <script src="SC+Project/src/project.js"></script>
   </body>
 </html>
