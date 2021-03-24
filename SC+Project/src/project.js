@@ -2,6 +2,7 @@ let apiWeatherKey = "3fd6432cc258ab6eb827a9d25e31b446";
 let apiLocationKey = "pk.df337fe02a9705d89867a6f5f0986e33";
 let currentCity = document.querySelector("#cityHeading");
 
+
 function getCoordinates(){
   navigator.geolocation.getCurrentPosition(handlePosition);
 }
@@ -44,9 +45,17 @@ function updateDate(){
   let months = ["January","February","March","April","May","June","July",
             "August","September","October","November","December"];
   let month = months[now.getMonth()];
+  let hours = now.getHours();
+  if(hours < 10){
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if(minutes<10){
+    minutes = `0${minutes}`;
+  }
   let year = now.getFullYear();
   let h3 = document.querySelector("#date");
-  h3.innerHTML= `${now.getHours()}:${now.getMinutes()}, ${day}, ${month} ${now.getDate()}, ${now.getFullYear()}`;
+  h3.innerHTML= `${hours}:${minutes}, ${day}, ${month} ${now.getDate()}, ${now.getFullYear()}`;
 }
 function updateCity(event){
   event.preventDefault();
@@ -72,9 +81,14 @@ function displayWeather(response){
   let windSpeed = response.data.wind.speed;
   let mainIcon = document.querySelector("#weatherIcon");
   let icon = response.data.weather[0].icon;
+  let desciptionElement = document.querySelector("#description");
+  let description = response.data.weather[0].description;
   weatherElement.innerHTML = `${searchedWeather}`;
   humidityElement.innerHTML = `${humidity}%`;
   windElement.innerHTML = `${windSpeed} mph`;
+  desciptionElement.innerHTML =`${description}`;
+  mainIcon.setAttribute("src",` http://openweathermap.org/img/wn/${icon}@2x.png`) ;
+  updateDate();
 }
 
 function displayFarenheit(event){

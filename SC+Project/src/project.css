@@ -37,6 +37,7 @@ li {
 }
 h3 {
   text-align: center;
+  text-transform: capitalize;
 }
 a {
   text-decoration: none;
@@ -59,10 +60,11 @@ a:hover {
 span.float-left {
   font-size: 15px;
 }
-span.weatherIcon {
+#weatherIcon {
   display: block;
   text-align: center;
-  font-size: 150px;
+  max-width: 100%;
+  height: auto;
   margin: 0 auto;
 }
 #bigDegree {
