@@ -1,13 +1,12 @@
 let apiWeatherKey = "3fd6432cc258ab6eb827a9d25e31b446";
 let apiLocationKey = "pk.df337fe02a9705d89867a6f5f0986e33";
 let currentCity = document.querySelector("#cityHeading");
+let celciusTemp = null;
 
 
 function getCoordinates(){
   navigator.geolocation.getCurrentPosition(findPosition);
 }
-
-
 
 function getCurrentWeather(event){
   event.preventDefault();
@@ -68,18 +67,23 @@ function displayWeather(response){
   desciptionElement.innerHTML =`${description}`;
   mainIcon.setAttribute("src",` http://openweathermap.org/img/wn/${icon}@2x.png`) ;
   updateDate();
+  celciusTemp = searchedWeather;
 }
 
 function displayFarenheit(event){
   event.preventDefault();
-  let farenheit = Math.round((searchedWeather*(9/5))+32);
+  celciusLink.classList.remove("active");
+  farenheitLink.classList.add("active");
+  let farenheit = Math.round((celciusTemp*(9/5))+32);
   let bigDegree = document.querySelector("#bigDegree");
   bigDegree.innerHTML = `${farenheit}`;
 }
 function displayCelcius(event){
   event.preventDefault();
+  farenheitLink.classList.remove("active");
+  celciusLink.classList.add("active");
   let bigDegree = document.querySelector("#bigDegree");
-  bigDegree.innerHTML = `${searchedWeather}`;
+  bigDegree.innerHTML = `${celciusTemp}`;
 }
 
 updateDate();
@@ -90,6 +94,8 @@ form.addEventListener("submit", updateCity);
 
 let currentButton = document.querySelector("#currentButton");
 currentButton.addEventListener("click", getCurrentWeather);
+
+
 
 let celciusLink = document.querySelector("#celciusLink");
 celciusLink.addEventListener("click", displayCelcius);

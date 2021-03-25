@@ -104,3 +104,10 @@ p.miniDegree {
   font-size: 20px;
   margin-bottom: 0;
 }
+.units .active {
+  color: black;
+  cursor: default;
+}
+.units .active:hover {
+  text-decoration: none;
+}
