@@ -60,10 +60,6 @@ function updateDate(){
 function updateCity(event){
   event.preventDefault();
   let cityInput = document.querySelector("#exampleInputCity");
-  let h1 = document.querySelector("#cityHeading");
-  if(cityInput.value !== "" && isNaN(cityInput.value)){
-    h1.innerHTML = `${cityInput.value}`;
-  }
   getWeather(cityInput.value);
 }
 
@@ -74,7 +70,7 @@ function getWeather(city){
 function displayWeather(response){
   let weatherElement = document.querySelector("#bigDegree");
   let searchedWeather = Math.round(response.data.main.temp);
-  console.log(response);
+  let h1 = document.querySelector("#cityHeading");
   let humidityElement = document.querySelector("#Humidity");
   let humidity = response.data.main.humidity;
   let windElement = document.querySelector("#wind");
@@ -83,6 +79,7 @@ function displayWeather(response){
   let icon = response.data.weather[0].icon;
   let desciptionElement = document.querySelector("#description");
   let description = response.data.weather[0].description;
+  h1.innerHTML = `${response.data.name}`;
   weatherElement.innerHTML = `${searchedWeather}`;
   humidityElement.innerHTML = `${humidity}%`;
   windElement.innerHTML = `${windSpeed} mph`;
