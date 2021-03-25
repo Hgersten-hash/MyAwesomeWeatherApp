@@ -4,39 +4,21 @@ let currentCity = document.querySelector("#cityHeading");
 
 
 function getCoordinates(){
-  navigator.geolocation.getCurrentPosition(handlePosition);
+  navigator.geolocation.getCurrentPosition(findPosition);
 }
 
-function handlePosition(position){
-  let latitude = position.coords.latitude.toString();
-  let longitude = position.coords.longitude.toString();
-  let coordinates = [latitude,longitude];
-  
-  findCurrentCity(coordinates);
-}
 
-function getCurrentWeather(response){
+
+function getCurrentWeather(event){
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(findPosition);
 }
 function findPosition(position){
   let latitude = position.coords.latitude.toString();
-  let longitude = position.coords.longitude.toString();
-  let coordinates = [latitude,longitude];
-  findCurrentCity(coordinates);
+  let longitude = position.coords.longitude.toString(); 
+  let apiLocationUrl2 = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiWeatherKey}`;
+  axios.get(apiLocationUrl2).then(displayWeather);
 }
-function findCurrentCity (coordinates){
-  let latitude = coordinates[0];
-  let longitude = coordinates[1];
-  let apiLocationUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=5&appid=${apiWeatherKey}`;
-  axios.get(apiLocationUrl).then(displayCurrentCity);
-}
-function displayCurrentCity(response){
-  console.log(response);
-  let city = response.data[0].name;
-  currentCity.innerHTML = `${city}`;
-  getWeather(city);
-}
-
 
 function updateDate(){
   let now = new Date();
