@@ -56,7 +56,7 @@ a:hover {
   text-decoration: underline;
 }
 .card-body {
-  padding: 5px;
+  padding: none;
 }
 
 .col-6 button {
