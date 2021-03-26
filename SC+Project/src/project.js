@@ -17,6 +17,7 @@ function findPosition(position){
   let longitude = position.coords.longitude.toString(); 
   let apiLocationUrl2 = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiWeatherKey}`;
   axios.get(apiLocationUrl2).then(displayWeather);
+  axios.get(apiUrlForecast).then(displayForecast);
 }
 
 function updateDate(){
@@ -38,6 +39,19 @@ function updateDate(){
   let h3 = document.querySelector("#date");
   h3.innerHTML= `${hours}:${minutes}, ${day}, ${month} ${now.getDate()}, ${now.getFullYear()}`;
 }
+
+function formatHours(timestamp){
+  let now = new Date(timestamp);
+  let hours = now.getHours();
+  if(hours < 10){
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if(minutes<10){
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
+}
 function updateCity(event){
   event.preventDefault();
   let cityInput = document.querySelector("#exampleInputCity");
@@ -47,6 +61,9 @@ function updateCity(event){
 function getWeather(city){
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiWeatherKey}`;
   axios.get(apiUrl).then(displayWeather);
+
+  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiWeatherKey}`;
+  axios.get(apiUrlForecast).then(displayForecast);
 }
 function displayWeather(response){
   let weatherElement = document.querySelector("#bigDegree");
@@ -65,9 +82,33 @@ function displayWeather(response){
   humidityElement.innerHTML = `${humidity}%`;
   windElement.innerHTML = `${windSpeed} mph`;
   desciptionElement.innerHTML =`${description}`;
-  mainIcon.setAttribute("src",` http://openweathermap.org/img/wn/${icon}@2x.png`) ;
+  mainIcon.setAttribute("src",` https://openweathermap.org/img/wn/${icon}@2x.png`) ;
   updateDate();
   celciusTemp = searchedWeather;
+}
+
+function displayForecast(response){
+  let forecast = null;
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML =null;
+
+  for(let i =0; i<6; i++){
+    forecast = response.data.list[i];
+    forecastElement.innerHTML += `<div class="col-2">
+                <div class="card">
+                  <div class="card-body">
+                    <h2>${formatHours(forecast.dt*1000)}</h2>
+                    <img class="miniIcon" src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" style = "max-width: 90%;"></img>
+                    <p class="miniDegree">
+                      <strong>${Math.round(forecast.main.temp_max)} </strong>
+                      <span>&#176;</span>
+                      <span>${Math.round(forecast.main.temp_min)}</span>
+                      <span>&#176;</span>
+                    </p>
+                  </div>
+                </div>
+              </div>`;
+  }
 }
 
 function displayFarenheit(event){
