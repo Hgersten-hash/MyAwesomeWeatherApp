@@ -17,6 +17,8 @@ function findPosition(position){
   let longitude = position.coords.longitude.toString(); 
   let apiLocationUrl2 = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiWeatherKey}`;
   axios.get(apiLocationUrl2).then(displayWeather);
+
+  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiWeatherKey}`;
   axios.get(apiUrlForecast).then(displayForecast);
 }
 
