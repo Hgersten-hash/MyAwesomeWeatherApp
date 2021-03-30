@@ -98,7 +98,7 @@ function displayForecast(response){
     forecast = response.data.list[i];
     forecastElement.innerHTML += `<div class="col-2">
                 <div class="card" id = "forecastCard">
-                  <div class="card-body">
+                  <div class="card-body" id = "littleCards">
                     <h2>${formatHours(forecast.dt*1000)}</h2>
                     <img class="miniIcon" src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" style = "max-width: 90%;"></img>
                     <p class="miniDegree">

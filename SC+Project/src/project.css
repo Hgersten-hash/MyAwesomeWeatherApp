@@ -106,6 +106,10 @@ div.weatherInfo {
 #forecastCard {
   background-color: transparent;
   border-color: white;
+  padding: 0;
+}
+#littleCards {
+  padding: 5px;
 }
 h2 {
   text-align: center;
